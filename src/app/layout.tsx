@@ -38,9 +38,25 @@ export default function RootLayout({
           <div className="relative flex min-h-screen flex-col">
             <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
               <div className="container flex h-14 items-center justify-between px-4">
-                <Link href="/" className="text-lg font-semibold">
-                  Task Tracker
-                </Link>
+                <div className="flex items-center gap-6">
+                  <Link href="/" className="text-lg font-semibold">
+                    Task Tracker
+                  </Link>
+                  <nav className="flex items-center gap-4 text-sm">
+                    <Link
+                      href="/dashboard"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      Dashboard
+                    </Link>
+                    <Link
+                      href="/dashboard/tasks"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      Tasks
+                    </Link>
+                  </nav>
+                </div>
                 <UserButton />
               </div>
             </header>

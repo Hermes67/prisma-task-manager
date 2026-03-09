@@ -1,6 +1,13 @@
 import { z } from "zod";
 
-const TASK_STATUSES = ["todo", "in_progress", "done"] as const;
+export const TASK_STATUSES = ["todo", "in_progress", "done"] as const;
+export type TaskStatus = (typeof TASK_STATUSES)[number];
+
+export const TASK_STATUS_LABELS: Record<TaskStatus, string> = {
+  todo: "To Do",
+  in_progress: "In Progress",
+  done: "Done",
+};
 
 export const createTaskSchema = z.object({
   title: z.string().min(1, "Title is required").max(255, "Title is too long"),
