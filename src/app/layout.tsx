@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
+import { SessionProvider } from "@/components/providers/session-provider";
+import { UserButton } from "@/components/auth/user-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Task Tracker",
-  description: "A modern task tracking application built with Next.js and shadcn/ui",
+  title: {
+    default: "Task Tracker",
+    template: "%s | Task Tracker",
+  },
+  description:
+    "A modern task tracking application built with Next.js and shadcn/ui",
 };
 
 export default function RootLayout({
@@ -27,7 +34,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SessionProvider>
+          <div className="relative flex min-h-screen flex-col">
+            <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+              <div className="container flex h-14 items-center justify-between px-4">
+                <Link href="/" className="text-lg font-semibold">
+                  Task Tracker
+                </Link>
+                <UserButton />
+              </div>
+            </header>
+            <main className="flex-1">{children}</main>
+          </div>
+        </SessionProvider>
       </body>
     </html>
   );
