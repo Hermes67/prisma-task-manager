@@ -1,0 +1,32 @@
+{
+  "name": "prisma-task-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:migrate": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:seed": "ts-node prisma/seed.ts",
+    "db:studio": "prisma studio"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@prisma/client": "^7.4.2",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.3.5",
+    "dotenv": "^17.3.1",
+    "prisma": "^7.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.4.2",
+    "better-sqlite3": "^12.6.2"
+  }
+}
