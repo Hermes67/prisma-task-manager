@@ -1,64 +1,82 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-4 py-16">
+      <main className="flex w-full max-w-2xl flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-3 text-center">
+          <Badge variant="secondary">Next.js + shadcn/ui</Badge>
+          <h1 className="text-4xl font-bold tracking-tight">Task Tracker</h1>
+          <p className="max-w-md text-lg text-muted-foreground">
+            A modern task tracking application built with Next.js, TypeScript,
+            Tailwind CSS, and shadcn/ui.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="flex gap-3">
+          <Button>Get Started</Button>
+          <Button variant="outline">Documentation</Button>
         </div>
+
+        <Separator className="my-2" />
+
+        <div className="grid w-full gap-4 sm:grid-cols-3">
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-base">TypeScript</CardTitle>
+              <CardDescription>
+                Strict mode enabled for type-safe development.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-base">Tailwind CSS</CardTitle>
+              <CardDescription>
+                Utility-first styling with CSS variables for theming.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-base">shadcn/ui</CardTitle>
+              <CardDescription>
+                Accessible components you can copy and customize.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+
+        <Card className="w-full">
+          <CardHeader>
+            <CardTitle>Ready to build</CardTitle>
+            <CardDescription>
+              This project is configured and ready for development. Start by
+              editing{" "}
+              <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">
+                src/app/page.tsx
+              </code>
+              .
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-2">
+            <Badge>App Router</Badge>
+            <Badge variant="outline">React Server Components</Badge>
+            <Badge variant="outline">Turbopack</Badge>
+            <Badge variant="outline">ESLint</Badge>
+          </CardContent>
+        </Card>
       </main>
     </div>
   );
